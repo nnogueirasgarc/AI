@@ -59,6 +59,15 @@ def scale(X_train, X_test, X_cv):
     # return the normalized data and the scaler
     return [X_train, X_test, X_cv, scaler]
 
+def manual_scale(X, y):
+    X_mean = torch.mean(X)
+    y_mean = torch.mean(y)
+    X_std = torch.std(X)
+    y_std = torch.std(y)
+    X_scaled = (X - X_mean) / X_std
+    y_scaled = (y - y_mean) / y_std
+    return X_scaled, y_scaled
+
 
 def clean_split_scale(X, y):
     # clean data (remove NaN data points)
