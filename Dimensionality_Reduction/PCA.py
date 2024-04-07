@@ -9,7 +9,7 @@ def apply_pca(X_train):
     # TODO: apply the sklearn {PCA} with 150 principal components 
     n_components = 150
     pca = PCA(n_components)
-    X_transform = pca.fit_transform(X_train)
+    pca.fit(X_train)
     # get the explained variance of each of the {n_components} components
     explained_variance_components = pca.explained_variance_ratio_
     
